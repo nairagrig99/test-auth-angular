@@ -1,0 +1,8 @@
+<section>
+  <button  (click)="back()">Go Back</button>
+  <mat-card *ngIf="postList">
+    <mat-card-title>{{postList.title}}</mat-card-title>
+    <mat-card-content>{{postList.body}}</mat-card-content>
+  </mat-card>
+</section>
+

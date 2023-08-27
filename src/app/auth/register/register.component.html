@@ -1,0 +1,64 @@
+<section class="sign">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Registration</mat-card-title>
+    </mat-card-header>
+    <form [formGroup]="form">
+      <app-input
+        [formControl]="firstNameControl"
+        formControlName='email'
+        [label]="'First Name'"
+        [type]="'text'"
+        [valid]="!firstNameControl.valid && firstNameControl.touched"
+        [msgError]="'Field can not be empty'"
+      ></app-input>
+
+      <app-input
+        [formControl]="LastNameControl"
+        [label]="'Last Name'"
+        [type]="'text'"
+        [valid]="!LastNameControl.valid && LastNameControl.touched"
+        [msgError]="'Field can not be empty'"
+      ></app-input>
+      <app-input
+        [formControl]="emailControl"
+        formControlName='email'
+        [label]="'Email'"
+        [type]="'email'"
+        [valid]="!emailControl.valid && emailControl.touched"
+        [msgError]="'Field can not be empty'"
+      ></app-input>
+      <app-input
+        [formControl]="passwordControl"
+        [label]="'Password'"
+        [type]="'password'"
+        [valid]="!passwordControl.valid  && passwordControl.touched "
+        [msgError]="
+        !rePasswordControl.touched? 'invalid password, ' +
+         'password must contain uppercase lowercase letters numbers and symbols ':'Passwords are not equal'"
+        [isPassword]="true"
+      ></app-input>
+      <app-input
+        [formControl]="rePasswordControl"
+        [label]="'Re Password'"
+        [type]="'password'"
+        [valid]="!rePasswordControl.valid && rePasswordControl.touched"
+        [msgError]="passwordControl.value<=0 ? 'Field can not be empty':'Passwords are not equal'"
+        [isPassword]="true"
+      ></app-input>
+
+      <app-button
+        (signInUser)="signUp()"
+        [title]="'Register'"
+        [disabled]="form.invalid"
+      >
+      </app-button>
+
+    </form>
+    <a [routerLink]="'/signIn'">Login</a>
+  </mat-card>
+  <div class="sign_logo">
+    <img src="assets/images/image-1.webp">
+    <img src="assets/images/image-2.webp"/>
+  </div>
+</section>

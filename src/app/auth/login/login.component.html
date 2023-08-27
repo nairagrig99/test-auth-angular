@@ -1,0 +1,38 @@
+<section class="sign">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <form [formGroup]="form">
+      <app-input
+        [formControl]="emailControl"
+        formControlName='email'
+        [label]="'Email'"
+        [type]="'email'"
+        [valid]="!emailControl.valid"
+      ></app-input>
+
+      <app-input
+        [formControl]="passwordControl"
+        [label]="'Password'"
+        [type]="'password'"
+        [valid]="form.hasError('invalidUser') "
+        [msgError]="form.getError('invalidUser')"
+        [isPassword]="true"
+      ></app-input>
+
+      <app-button
+        (signInUser)="signIn()"
+        [title]="'Login'"
+
+      >
+      </app-button>
+
+    </form>
+    <a [routerLink]="'/signUp'">Registration</a>
+
+  </mat-card>
+  <div class="sign_logo">
+    <img src="assets/images/image-2.webp"/>
+  </div>
+</section>
