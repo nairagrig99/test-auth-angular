@@ -1,0 +1,19 @@
+<div class="custom">
+  <input
+    class="custom_input"
+    [type]="type"
+    [name]="name"
+    [placeholder]="label"
+    [(ngModel)]="input"
+    (blur)="onTouch($event)"
+    (ngModelChange)="changeInput($event)">
+
+  <mat-error *ngIf="valid">
+    {{msgError}}
+  </mat-error>
+
+  <div class="custom_show-password" *ngIf="isPassword">
+    <img (click)="togglePassword(changePasswordType)" src="assets/svg/eye-12111.svg">
+  </div>
+
+</div>

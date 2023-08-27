@@ -1,0 +1,25 @@
+@import "src/assets/variables";
+
+button {
+@include button
+}
+
+mat-card {
+  margin: 45px;
+  font-family: sans-serif;
+  text-transform: capitalize;
+  border: 1px dotted;
+  padding: 45px;
+
+  mat-card-title {
+    color: $basic_color;
+    font-weight: 600;
+    font-size: 25px;
+    margin-bottom: 15px;
+  }
+
+  mat-card-content {
+    font-weight: 600;
+
+  }
+}

@@ -1,0 +1,46 @@
+@import "src/assets/variables";
+
+.sign {
+  background: $basic_color;
+  height: 100vh;
+  position: relative;
+
+  mat-card {
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -52%);
+    padding: 65px;
+    text-align: center;
+    z-index: 999;
+
+    mat-card-header {
+      justify-content: center;
+    }
+
+    mat-card-title {
+      font-size: 30px !important;
+      font-family: sans-serif !important;
+
+    }
+  }
+
+  a {
+    font-size: 20px;
+    text-align: right;
+    text-decoration: none;
+    margin-top: 40px;
+  }
+
+  &_logo {
+    position: absolute;
+    right: 26%;
+    top: 50%;
+  }
+}
+
+
+
+
+
+

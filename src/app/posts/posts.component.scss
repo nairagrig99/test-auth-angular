@@ -1,0 +1,29 @@
+@import "src/assets/variables";
+
+.posts-list {
+
+  font-family: sans-serif;
+  height: 800px;
+
+  button {
+    @include button
+  }
+
+  &-table {
+    width: 90%;
+    height: 70%;
+    margin: 80px auto;
+    overflow-y: scroll;
+    border: 1px dotted;
+
+    &table {
+      width: 100%;
+    }
+
+    tr:hover {
+      background: $basic_color;
+      cursor: pointer;
+    }
+  }
+}
+

@@ -1,0 +1,31 @@
+.custom {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 30px;
+  position: relative;
+
+  &_label {
+    font-family: sans-serif;
+  }
+
+  &_input {
+    min-width: 350px;
+    padding: 15px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid grey;
+  }
+
+  &_show-password {
+    position: absolute;
+    right: 0;
+    top: 23px;
+
+    img {
+      width: 27px;
+
+    }
+  }
+}
