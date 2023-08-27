@@ -34,8 +34,7 @@
         [type]="'password'"
         [valid]="!passwordControl.valid  && passwordControl.touched "
         [msgError]="
-        !rePasswordControl.touched? 'invalid password, ' +
-         'password must contain uppercase lowercase letters numbers and symbols ':'Passwords are not equal'"
+        !rePasswordControl.touched ? errorMsgEnum.INVALID_PSW : errorMsgEnum.PASSWORD_NOT_EQUAL"
         [isPassword]="true"
       ></app-input>
       <app-input
@@ -43,7 +42,7 @@
         [label]="'Re Password'"
         [type]="'password'"
         [valid]="!rePasswordControl.valid && rePasswordControl.touched"
-        [msgError]="passwordControl.value<=0 ? 'Field can not be empty':'Passwords are not equal'"
+        [msgError]="passwordControl.value<=0 ? errorMsgEnum.EMPTY_FIELD : errorMsgEnum.PASSWORD_NOT_EQUAL"
         [isPassword]="true"
       ></app-input>
 
