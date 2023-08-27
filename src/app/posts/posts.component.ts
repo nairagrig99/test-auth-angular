@@ -15,7 +15,7 @@ export class PostsComponent implements OnInit {
 
   public postList$: Observable<PostInterface[]> = of([]);
   public postList!: PostInterface[];
-
+  public displayedColumns: string[] = ['id', 'title', 'body'];
 
   constructor(private postService: PostApiService, private route: Router) {
   }
@@ -26,15 +26,13 @@ export class PostsComponent implements OnInit {
     this.postList$.subscribe((postsList) => this.postList = postsList)
   }
 
-  displayedColumns: string[] = ['id', 'title', 'body'];
 
-
-  public getPost(index: any) {
+  public getPost(index: any): void {
     const url = `posts/post/${this.postList[index].id}`
     this.route.navigate([url])
   }
 
-  public logOut() {
+  public logOut(): void {
     localStorage.removeItem('registeredUser');
     this.route.navigate(['signIn'])
   }

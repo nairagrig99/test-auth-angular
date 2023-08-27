@@ -3,6 +3,8 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthLocalService} from "../auth-local.service";
 import {confirmPasswordValidator} from "../../validators/confirm-password.validator";
 import {AuthUserInterface} from "../../interface/auth-user.interface";
+import {ErrorMsgEnum} from "../../interface/error-msg.enum";
+import {RegExpEnum} from "../../interface/reg_exp.enum";
 
 @Component({
   selector: 'app-register',
@@ -12,6 +14,8 @@ import {AuthUserInterface} from "../../interface/auth-user.interface";
 export class RegisterComponent {
 
   public form!: FormGroup;
+  public errorMsgEnum = ErrorMsgEnum;
+  private regExpEnum = RegExpEnum;
 
   constructor(private formBuilder: FormBuilder,
               private localService: AuthLocalService) {
@@ -42,17 +46,15 @@ export class RegisterComponent {
   }
 
   private initForm(): FormGroup {
-    const regExpForPsw = '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-zd$@$!%*?&].{8,15}';
-    const regExpForUserName = '^[a-zA-Z][a-zA-Z0-9_]{3,29}$';
 
     return this.formBuilder.group({
-      firstName: [null, [Validators.required, Validators.pattern(regExpForUserName)]],
-      lastName: [null, [Validators.required, Validators.pattern(regExpForUserName)]],
+      firstName: [null, [Validators.required, Validators.pattern(this.regExpEnum.REG_EXP_FOR_NAME)]],
+      lastName: [null, [Validators.required, Validators.pattern(this.regExpEnum.REG_EXP_FOR_NAME)]],
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required,
-        Validators.pattern(regExpForPsw)]],
+        Validators.pattern(this.regExpEnum.REG_EXP_FOR_PSW)]],
       re_password: [null, [Validators.required,
-        Validators.pattern(regExpForPsw)]],
+        Validators.pattern(this.regExpEnum.REG_EXP_FOR_PSW)]],
     }, {validators: confirmPasswordValidator})
   }
 
