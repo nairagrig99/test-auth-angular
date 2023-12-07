@@ -5,6 +5,7 @@ import {confirmPasswordValidator} from "../../validators/confirm-password.valida
 import {AuthUserInterface} from "../../interface/auth-user.interface";
 import {ErrorMsgEnum} from "../../interface/error-msg.enum";
 import {RegExpEnum} from "../../interface/reg_exp.enum";
+import {Route, Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,8 @@ export class RegisterComponent {
   private regExpEnum = RegExpEnum;
 
   constructor(private formBuilder: FormBuilder,
-              private localService: AuthLocalService) {
+              private localService: AuthLocalService,
+              private route: Router) {
   }
 
   ngOnInit(): void {
@@ -70,6 +72,7 @@ export class RegisterComponent {
 
     if (this.form?.valid && !isUserAlreadyCreated) {
       this.localService.setSignUpUser(this.form.value);
+      this.route.navigate(['/signIn']);
     }
   }
 

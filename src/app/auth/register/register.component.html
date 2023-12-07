@@ -49,7 +49,7 @@
       <app-button
         (signInUser)="signUp()"
         [title]="'Register'"
-        [disabled]="form.invalid"
+        [disabled]="!form.valid"
       >
       </app-button>
 
